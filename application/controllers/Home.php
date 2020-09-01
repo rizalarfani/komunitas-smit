@@ -50,11 +50,6 @@ class Home extends CI_Controller{
                 $this->send_email($email,'send_wa');
                 $this->session->set_flashdata('info', 'Berhasil daftar sebagai anggota!!Silahkan cek email untuk masuk group');
                 redirect("pendaftaran");
-            } else {
-                $data['title'] = "Pendaftaran Anggokat";
-                $this->load->view('frontend/template/header',$data);
-                $this->load->view('frontend/home/pendaftaran');
-                $this->load->view('frontend/template/footer');
             }
         }
         $data['title'] = "Pendaftaran Anggokat";
