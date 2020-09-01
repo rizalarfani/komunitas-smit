@@ -40,24 +40,27 @@
                 <p>Silahkan isi form dibawah ini,Nb Jika belum mempunyai nim kosongkan aja,dan gunakan email yang asli</p>
             </header>
             <div class="row justify-content-center">
-                <div class="col-lg-12 col-sm-12 col">
+                <div class="col-lg-12 col-sm-12 col-auto">
+                <?php if($this->session->flashdata('info')): ?>
+                    <div class="alert alert-success"><?php echo $this->session->flashdata('info') ?></div>
+                <?php endif ?>
                     <div class="card">
                         <div class="card-header" style="background-color: #1ADDA1;">
                             <div class="card-title text-white" style="font-weight:bold; font-size:20px">Pendaftaran Anggota SMIT</div>
                         </div>
                         <div class="card-body">
-                            <?php echo form_open() ?>
+                            <?php echo form_open('pendaftaran') ?>
                                 <div class="row justify-content-center">
                                     <div class="col-lg-6 col-sm-6 col">
                                         <div class="form-group">
                                             <label for="Nama Lengkap">Nama Lengkap</label>
-                                            <input type="text" class="form-control <?php echo  form_error('nama_lengkap') ? "is-invalid" : "" ?>" placeholder="Nama Lenkap" aria-label="Nama Lengkap" aria-describedby="Nama Lengkap" name="name_lengkap">
+                                            <input type="text" class="form-control <?php echo  form_error('name_lengkap') ? "is-invalid" : "" ?>" placeholder="Nama Lenkap" aria-label="Nama Lengkap" aria-describedby="Nama Lengkap" name="name_lengkap">
                                             <div class="invalid-feedback">
                                                 <?php echo form_error('name_lengkap') ?>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-sm-6 col">
+                                    <div class="col-lg-6 col-sm-6 col-auto">
                                         <div class="form-group">
                                             <label for="Email">Masukan Email</label>
                                             <input type="email" class="form-control <?php echo  form_error('email') ? "is-invalid" : "" ?>" placeholder="Email address" aria-label="Email address" aria-describedby="Email address" name="email">
@@ -68,7 +71,7 @@
                                     </div>
                                 </div>
                                 <div class="row justify-content-center">
-                                    <div class="col-lg-6 col-sm-6 col">
+                                    <div class="col-lg-6 col-sm-6 col-auto">
                                         <div class="form-group">
                                             <label for="Masukan NIM">Masukan NIM</label>
                                             <input type="number" class="form-control <?php echo  form_error('nim') ? "is-invalid" : "" ?>" placeholder="Nim Mahasiswa" aria-label="Nim Mahasiswa" aria-describedby="Nim Mahasiswa" name="nim">
@@ -77,7 +80,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-sm-6 col">
+                                    <div class="col-lg-6 col-sm-6 col-auto">
                                         <div class="form-group">
                                             <label for="Nomor WhatsApp">Nomor WhatsApp</label>
                                             <input type="no_wa" class="form-control <?php echo  form_error('no_wa') ? "is-invalid" : "" ?>" placeholder="Nomor WhatsApp" aria-label="Nomor WhatsApp" aria-describedby="Nomor WhatsApp" name="no_wa">
@@ -88,7 +91,7 @@
                                     </div>
                                 </div>
                                 <div class="row justify-content-center">
-                                    <div class="col-lg-6 col-sm-6 col">
+                                    <div class="col-lg-6 col-sm-6 col-auto">
                                         <label for="Jenis Kelamin">Jenis Kelamin</label>
                                         <div class="form-group">
                                             <div class="form-check form-check-inline">
@@ -101,7 +104,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-sm-6 col">
+                                    <div class="col-lg-6 col-sm-6 col-auto">
                                         <div class="form-group">
                                             <label for="Pilih Prodi">Pilih Prodi</label>
                                             <select class="form-control" name="prodi" id="prodi">Pilih Prodi
@@ -128,10 +131,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            <?php echo form_close() ?>
                         </div>
                         <div class="card-footer" style="background-color: #1ADDA1;">
-                            <button type="submit" class="btn btn-success">Daftar Anggotas</button>
+                            <button type="submit" name="tambah" class="btn btn-success">Daftar Anggota</button>
+                            <?php echo form_close() ?>
                         </div>
                     </div>
                 </div>
