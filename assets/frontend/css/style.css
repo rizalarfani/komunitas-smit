@@ -726,7 +726,7 @@ h6 {
 }
 
 #sponsors .sponsor-logo {
-  padding: 64px;
+  padding: 10px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -743,7 +743,7 @@ h6 {
   border-bottom: 1px solid #d6eaff;
   overflow: hidden;
   background: #fff;
-  height: 160px;
+  height: 260px;
 }
 
 #sponsors .sponsor-logo:hover img {
