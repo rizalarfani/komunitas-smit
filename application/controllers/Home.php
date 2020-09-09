@@ -47,7 +47,6 @@ class Home extends CI_Controller{
                     'motivasi' => $motivasi
                 ];
                 $this->home->insert_data($data);
-                $this->send_email($email,'send_wa');
                 $this->session->set_flashdata('info', 'Berhasil daftar sebagai anggota!!Silahkan cek email untuk masuk group');
                 redirect("pendaftaran");
             }
@@ -103,37 +102,6 @@ class Home extends CI_Controller{
                 $this->load->view('frontend/template/footer');
             }
             
-        }
-    }
-    private function send_email($email,$type)
-    {
-        $from_email = "arfanirizal22@gmail.com";
-        if(empty($email)){
-            redirect('home');
-        }
-        if($type == 'send_wa'){
-            $config = [
-                'protocol'  => 'smtp',
-                'smtp_host' => 'ssl://smtp.googlemail.com',
-                'smtp_port' => 465,
-                'smtp_user' => $from_email,
-                'smtp_pass' => 'arfani12345',
-                'mailtype'  => 'html', 
-                'charset'   => 'iso-8859-1'
-            ];
-            $this->load->library('email',$config);
-            $this->email->initialize($config);
-            $this->email->set_newline("\r\n");
-            $this->email->from($from_email,"Admin SMIT");
-            $this->email->to($email);
-            $this->email->subject('Angota Baru');
-            $this->email->message('Selamat anda sudah menjadi anggota baru <a href='.base_url('auth/changePassword?email='.$email.'').'>Reset Password</a>');
-            if ($this->email->send()) {
-                $this->session->set_flashdata('info', 'Berhasil kirim email');
-                redirect('pendaftaran');
-            }else{
-                echo $this->email->print_debugger();die;
-            }
         }
     }
 }
