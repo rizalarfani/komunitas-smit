@@ -50,6 +50,7 @@
                         </div>
                         <div class="card-body">
                             <?php echo form_open('pendaftaran') ?>
+                            <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
                                 <div class="row justify-content-center">
                                     <div class="col-lg-6 col-sm-6 col">
                                         <div class="form-group">

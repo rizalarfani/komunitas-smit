@@ -54,3 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['pendaftaran'] = "Home/pendaftaran_anggota";
+$route['login'] = "Auth/index";
